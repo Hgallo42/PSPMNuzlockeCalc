@@ -32,15 +32,14 @@
     "terser": "^5.16.5"
   },
   "scripts": {
-    "lint": "subpkg run lint && eslint --cache src --ext js",
-    "fix": "subpkg run fix && eslint --fix src --ext js",
-    "compile": "subpkg run compile && node build view",
-    "bundle": "subpkg run bundle",
-    "build": "subpkg run build && node build view",
-    "test": "subpkg run test && npm run build && eslint --cache src --ext js",
-    "postinstall": "subpkg install"
+    "lint": "eslint --cache src --ext js",
+    "fix": "eslint --fix src --ext js",
+    "compile": "node build view",
+    "build": "node build",
+    "test": "npm run build && eslint --cache src --ext js",
+    "start": "node server.js"
   },
-  "subPackages": [
-    "calc"
-  ]
+  "dependencies": {
+    "@smogon/calc": "^0.10.0"
+  }
 }

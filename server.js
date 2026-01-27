@@ -1,5 +1,6 @@
 const express = require("express");
-const calc = require("calc");
+// Use local calc for API route to reflect workspace edits
+const calc = require("./calc");
 const app = express();
 app.listen(3000, () => {
 	console.log("Server running on port 3000");
@@ -27,4 +28,5 @@ app.get("/calculate",(req, res, next) => {
 	res.json(result);
 })
 
+// Serve the built static site from dist/
 app.use(express.static('dist'))

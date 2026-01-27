@@ -72,11 +72,19 @@ function cpdir(src, dest) {
 	}
 }
 
-if (process.argv[2] !== 'view') {
-	require('child_process').execSync('npm --prefix calc/ run compile', {stdio: 'inherit'});
-}
+// No local calc compile step; rely on installed @smogon/calc package
 
-cpdir('src', 'dist');
-cpdir('calc/dist', 'dist/calc');
+// Copy static assets from root folders instead of missing src/
+cpdir('css', path.join('dist', 'css'));
+cpdir('img', path.join('dist', 'img'));
+cpdir('js', path.join('dist', 'js'));
+// Copy HTML templates needed by cachebuster
+try {
+	fs.copyFileSync(path.join(rootDir, 'index.template.html'), path.join('dist', 'index.template.html'));
+} catch (e) {
+	console.error('Error copying index.template.html:', e.message);
+}
+// Use local calc sources so edits in `calc/` are reflected
+cpdir('calc', 'dist/calc');
 //makeCachebuster('dist/honkalculate.template.html', 'dist/honkalculate.html');
 makeCachebuster('dist/index.template.html', 'dist/index.html');
