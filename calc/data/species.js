@@ -8202,7 +8202,7 @@ var PSPM_PATCH = {
         baseSpecies: 'Lycanroc'
     },
     'Lycanroc-Midnight': {
-        types: ['Rock'],
+        types: ['Rock','Dark'],
         bs: { hp: 95, at: 115, df: 85, sa: 55, sd: 75, sp: 82 },
         weightkg: 25,
         baseSpecies: 'Lycanroc',
