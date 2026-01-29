@@ -5764,7 +5764,7 @@ var SV_PATCH = {
     }
 };
 var SV = (0, util_1.extend)(true, {}, SS, SV_PATCH);
-exports.MOVES = [{}, RBY, GSC, ADV, DPP, BW, XY, SM, SS, SV];
+exports.MOVES = [{}, RBY, GSC, ADV, DPP, BW, XY, PSPM, SS, SV];
 var Moves = (function () {
     function Moves(gen) {
         this.gen = gen;
